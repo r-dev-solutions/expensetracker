@@ -1,0 +1,56 @@
+Personal Finance API - Expenses Endpoints
+=========================================
+
+Base URL: http://localhost:5000/api/expenses
+
+-----------------------------------------
+GET /api/expenses
+-----------------------------------------
+Description: Retrieve all expenses.
+Response: Array of expense objects.
+Example:
+[
+  {
+    "_id": "665f1c2e2e8b2c0012a4e8b1",
+    "description": "Coffee",
+    "amount": 3.5,
+    "date": "2024-06-05T12:34:56.789Z",
+    "__v": 0
+  }
+]
+
+-----------------------------------------
+POST /api/expenses
+-----------------------------------------
+Description: Create a new expense.
+Request Body (JSON):
+{
+  "description": "Lunch",
+  "amount": 12.0
+}
+Response: The created expense object.
+
+-----------------------------------------
+PUT /api/expenses/:id
+-----------------------------------------
+Description: Update an existing expense by its ID.
+Request Params:
+  id - The MongoDB ObjectId of the expense.
+Request Body (JSON): Fields to update.
+Response: The updated expense object.
+Error: 404 if not found.
+
+-----------------------------------------
+DELETE /api/expenses/:id
+-----------------------------------------
+Description: Delete an expense by its ID.
+Request Params:
+  id - The MongoDB ObjectId of the expense.
+Response: The deleted expense object.
+Error: 404 if not found.
+
+-----------------------------------------
+Notes:
+- All endpoints accept and return JSON.
+- The "date" field is automatically set if not provided.
+- All expense IDs are MongoDB ObjectIds.
